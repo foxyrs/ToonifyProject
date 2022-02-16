@@ -8,12 +8,23 @@
   </head>
   <body>
     <div class="container-fluid">
-    <div class="row">
-      <div class="col">
-        <h1>Hello, world!</h1>
-        <p>Here is a parameter : {{ param }}</p>
-      </div>
-    </div>
+
+        <h1 class="text-primary text-center mb-5">Transformez-vous en personnage Cartoon !</h1>
+        
+        <div class="mx-5">
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input class="form-control-file mb-2" type="file" name="image">
+            <button class="btn btn-primary" type="submit">Valider</button>
+          </form>
+        </div>
+
+        <div>
+          {% if uploaded_file_url %}
+            <p>Image envoyé sur : <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+          {% endif %}
+        </div>
+
     </div>
 
 

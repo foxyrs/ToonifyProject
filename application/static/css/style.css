@@ -1,0 +1,23 @@
+.form-control-file {
+    width: auto !important;
+}
+
+.txtDepotFichier{
+    position: absolute;
+    margin-top: 21%;
+    margin-left: 11%;
+    font-size: 12px;
+}
+
+.inputDepotFichier{
+    height: 150px;
+    padding-top: calc(14%);
+    padding-left: 46%;
+}
+
+#toonifiedImgContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}

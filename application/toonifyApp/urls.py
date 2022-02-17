@@ -6,6 +6,7 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('api/toonify', views.api_toonify, name='api_toonify'),
 ]
 
 if settings.DEBUG:

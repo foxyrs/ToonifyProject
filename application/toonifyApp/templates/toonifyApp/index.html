@@ -1,38 +1,52 @@
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>Toonify</title>
-  </head>
-  <body>
-    <div class="container-fluid">
+{% extends 'toonifyApp/base.html' %}
 
-        <h1 class="text-primary text-center mb-5">Transformez-vous en personnage Cartoon !</h1>
-        
-        <div class="mx-5">
-          <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <input class="form-control-file mb-2" type="file" name="image">
-            <button class="btn btn-primary" type="submit">Valider</button>
-          </form>
+{% load static %}
+
+{% block stylesheets %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+{% block javascripts %}
+{{ block.super }}
+<script src="{% static 'scripts/script.js' %}"></script>
+{% endblock %}
+
+{% block title %}ToonifyApp{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-primary text-center mb-5">Transformez-vous en personnage Cartoon !</h1>
         </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col " style="max-width: 500px">
+            <form id="toonifyForm" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
 
-        <div>
-          {% if uploaded_file_url %}
-            <p>Image envoyé sur : <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
-          {% endif %}
+                <div class="form-row">
+                        <label for="imageInput" class="txtDepotFichier">Glisser/Déposer un fichier ou</label>
+                        <label for="imageInput">Image*</label>
+                        <input id="imageInput" class="inputDepotFichier form-control" type="file" name="image" accept="image/*" required>
+                </div>
+                <br>
+                <div class="row justify-content-center ">
+                    <button id="sendToonifyForm" class="btn btn-primary" type="button">C'est parti ! <span class="spinner-border spinner-border-sm"
+                                                                               role="status" aria-hidden="true"
+                                                                               hidden="hidden"></span></button>
+                </div>
+            </form>
         </div>
+    </div>
+    <br>
+    <div class="row">
+        <div id="toonifiedImgContainer" class="col">
 
+        </div>
     </div>
 
 
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-  </body>
-</html>
+</div>
+{% endblock %}

@@ -8,8 +8,8 @@ from ffhq_dataset.face_alignment import image_align
 from ffhq_dataset.landmarks_detector import LandmarksDetector
 from pathlib import Path
 
-#LANDMARKS_MODEL_URL = 'http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2'
-LANDMARKS_MODEL_URL = Path(__file__).resolve().parent.parent/"../static/libs/shape_predictor_68_face_landmarks.dat.bz2"
+LANDMARKS_MODEL_URL = 'http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2'
+#LANDMARKS_MODEL_URL = Path(__file__).resolve().parent.parent/"../static/libs/shape_predictor_68_face_landmarks.dat.bz2"
 
 def setup():
     landmarks_model_path = unpack_bz2(get_file('shape_predictor_68_face_landmarks.dat.bz2',

@@ -4,6 +4,7 @@ $(document).ready(function () {
 
     let getUrl = window.location;
     let baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+    let baseUrl2 = getUrl .protocol + "//" + getUrl.host;
 
     $('#sendToonifyForm').on('click', function(){
         let data = [];
@@ -43,7 +44,7 @@ $(document).ready(function () {
                 success: function (response) {
                     console.log(response);
                     input.value = "";
-                    let linkHTML = '<div class="row"><img style="max-width: 300px" src="'+baseUrl+response+'" alt="result"></div><div class="row"><a download="" href="'+baseUrl+response+'" target="_blank">Download</a></div>';
+                    let linkHTML = '<div class="row"><img style="max-width: 300px" src="'+baseUrl2+response+'" alt="result"></div><div class="row"><a download="" href="'+baseUrl2+response+'" target="_blank">Download</a></div>';
                     $("#toonifiedImgContainer").html(linkHTML);
                 },
             });

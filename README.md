@@ -4,7 +4,7 @@
 
 Prérequis :
   1. Installer [Python 3.7.9](https://www.python.org/downloads/release/python-379/)
-  2. Installer [Visual studio 2017 community édition](https://visualstudio.microsoft.com/fr/free-developer-offers/)
+  2. Installer [Visual studio 2017 community édition](https://visualstudio.microsoft.com/fr/free-developer-offers/) et le compilateur c++
   3. Ajouter le chemin à la variable d'environnement PATH (ex: `C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\bin`)
 
 Procédure :

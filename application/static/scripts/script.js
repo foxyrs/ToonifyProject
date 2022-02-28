@@ -46,14 +46,17 @@ $(document).ready(function () {
                     input.value = "";
                     let linkHTML = '<div class="row"><img style="max-width: 300px" src="'+baseUrl2+response+'" alt="result"></div><div class="row"><a download="" href="'+baseUrl2+response+'" target="_blank">Download</a></div>';
                     $("#toonifiedImgContainer").html(linkHTML);
+                    if(data['element'] !== undefined) data['element'].prop('disabled', false);
+                    if(data['span'] !== undefined) data['span'].attr('hidden','hidden');
                 },
             });
 
         } else {
             console.log("no file selected");
             $("#toonifyForm")[0].reportValidity();
+            if(data['element'] !== undefined) data['element'].prop('disabled', false);
+            if(data['span'] !== undefined) data['span'].attr('hidden','hidden');
         }
-        if(data['element'] !== undefined) data['element'].prop('disabled', false);
-        if(data['span'] !== undefined) data['span'].attr('hidden','hidden');
+        
     }
 });
